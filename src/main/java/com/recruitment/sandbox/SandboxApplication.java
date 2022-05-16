@@ -18,50 +18,63 @@ public class SandboxApplication {
 		List<Customer> customers = new ArrayList<>();
 		customers.addAll(createCustomers());
 
-		// V kolekci customers najděte libovolného prvního zákazníka, který vlastní fixní linku a vypíšte jeho jméno do konzole.
-		Optional<Customer> customer = customers.stream().filter( c ->  c.getDevices().stream().anyMatch( d -> !d.isMobile())).findFirst();
-		System.out.println("zákazník = "+ (customer.isPresent() ? customer.get().getName() : ""));
+		// V kolekci customers najděte libovolného prvního zákazníka, který vlastní fixní linku a vypíšte jeho jméno do konzole. (Customer.mobile = false)
 
-		// Do konzole vypište seznam jmen zařízení, které jsou unikátní (žádné jméno se se nesmí opakovat) a zároveň dražší než 20000Kč.
-		Set<String> devices = customers.stream().flatMap(c -> c.getDevices().stream().filter(d -> d.getPrice().compareTo(new BigDecimal(20000)) > 0).map(Device::getName)).collect(Collectors.toSet());
-		System.out.println("seznam unikátních jmen zařízení, které jsou dražší než 20000Kč = "+ devices);
+		// Do konzole vypište seznam jmen zařízení, které jsou unikátní (žádné jméno se se nesmí opakovat) a zároveň dražší než 20000Kč. (Device.price > 20000)
 
 		// Výsledný seznam nalezených jmen zařízení seřaďte podle abecedy a vypište do konzole
-		System.out.println("seznam seřazen podle abecedy = "+ devices.stream().sorted().collect(Collectors.toList()));
 
 	}
 
 
 	/**
 	 * creates two instances of Customer:
-	 *  1 - Pavel , has two devices (1. iPhone, 2. fixedLine)
-	 *  2 - Karel, has one device (1. Alcatel)
-	 *  3 - Pepa , has one device (1. iPhone)
+	 * 1 - Pavel , has two devices (1. iPhone, 2. fixedLine)
+	 * 2 - Karel, has one device (1. Alcatel)
+	 * 3 - Pepa , has one device (1. iPhone)
+	 *
 	 * @return - collection of customers
 	 */
 	private static Collection<Customer> createCustomers() {
 		List<Customer> customers = new ArrayList<>();
 		List<Device> devicesPavel = new ArrayList<>();
-		devicesPavel.add(Device.builder().id("device_1").name("iPhone").mobile(true).price(new BigDecimal("29000")).build());
-		devicesPavel.add(Device.builder().id("device_2").name("fixedLine").mobile(false).price(new BigDecimal("5000")).build());
-		customers.add(
-			Customer.builder()
-				.id("customer_1")
-				.name("Pavel")
-				.devices(devicesPavel)
+		devicesPavel.add(Device.builder()
+				.id("device_1")
+				.name("iPhone").mobile(true)
+				.price(new BigDecimal("29000"))
 				.build());
+		devicesPavel.add(Device.builder()
+				.id("device_2")
+				.name("fixedLine")
+				.mobile(false)
+				.price(new BigDecimal("5000"))
+				.build());
+		customers.add(
+				Customer.builder()
+						.id("customer_1")
+						.name("Pavel")
+						.devices(devicesPavel)
+						.build());
 
 		List<Device> devicesKarel = new ArrayList<>();
-		devicesKarel.add(Device.builder().id("device_3").name("Alcatel").mobile(true).price(new BigDecimal("21000")).build());
-		customers.add(
-			Customer.builder()
-				.id("customer_2")
-				.name("Karel")
-				.devices(devicesKarel)
+		devicesKarel.add(Device.builder()
+				.id("device_3")
+				.name("Alcatel")
+				.mobile(true).price(new BigDecimal("21000"))
 				.build());
+		customers.add(
+				Customer.builder()
+						.id("customer_2")
+						.name("Karel")
+						.devices(devicesKarel)
+						.build());
 
 		List<Device> devicesPepa = new ArrayList<>();
-		devicesPepa.add(Device.builder().id("device_1").name("iPhone").mobile(true).price(new BigDecimal("29000")).build());
+		devicesPepa.add(Device.builder()
+				.id("device_1").name("iPhone")
+				.mobile(true)
+				.price(new BigDecimal("29000"))
+				.build());
 		customers.add(
 				Customer.builder()
 						.id("customer_3")
