@@ -40,7 +40,8 @@ public class SandboxApplication {
 		List<Device> devicesPavel = new ArrayList<>();
 		devicesPavel.add(Device.builder()
 				.id("device_1")
-				.name("iPhone").mobile(true)
+				.name("iPhone")
+				.mobile(true)
 				.price(new BigDecimal("29000"))
 				.build());
 		devicesPavel.add(Device.builder()
@@ -60,7 +61,8 @@ public class SandboxApplication {
 		devicesKarel.add(Device.builder()
 				.id("device_3")
 				.name("Alcatel")
-				.mobile(true).price(new BigDecimal("21000"))
+				.mobile(true)
+				.price(new BigDecimal("21000"))
 				.build());
 		customers.add(
 				Customer.builder()
@@ -71,7 +73,8 @@ public class SandboxApplication {
 
 		List<Device> devicesPepa = new ArrayList<>();
 		devicesPepa.add(Device.builder()
-				.id("device_1").name("iPhone")
+				.id("device_1")
+				.name("iPhone")
 				.mobile(true)
 				.price(new BigDecimal("29000"))
 				.build());
