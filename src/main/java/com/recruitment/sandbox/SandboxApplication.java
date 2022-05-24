@@ -18,11 +18,11 @@ public class SandboxApplication {
 		List<Customer> customers = new ArrayList<>();
 		customers.addAll(createCustomers());
 
-		//In the collection of customers find the first customer which has a fixed-line (customer.mobile = false) and write down his name on the console
+		//1. In the collection of customers find the first customer which has a fixed-line (customer.mobile = false) and write down his name on the console
 
-		//Write down into console collection of device names, which are unique (device.name i not same as other in the collection) and device price is less than 20000 crowns (device.price < 20000)
+		//2. Write down into console collection of device names, which are unique (device.name i not same as other in the collection) and device price is less than 20000 crowns (device.price < 20000)
 
-		//Collection from previous task sort by device name and write down into the console
+		//3. Collection from previous task 2. sort by device name and write down into the console
 
 	}
 
