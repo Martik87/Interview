@@ -18,11 +18,11 @@ public class SandboxApplication {
 		List<Customer> customers = new ArrayList<>();
 		customers.addAll(createCustomers());
 
-		// V kolekci customers najděte libovolného prvního zákazníka, který vlastní fixní linku a vypíšte jeho jméno do konzole. (Customer.mobile = false)
+		//In the collection of customers find the first customer which has a fixed-line (customer.mobile = false) and write down his name on the console
 
-		// Do konzole vypište seznam jmen zařízení, které jsou unikátní (žádné jméno se se nesmí opakovat) a zároveň dražší než 20000Kč. (Device.price > 20000)
+		//Write down into console collection of device names, which are unique (device.name i not same as other in the collection) and device price is less than 20000 crowns (device.price < 20000)
 
-		// Výsledný seznam nalezených jmen zařízení seřaďte podle abecedy a vypište do konzole
+		//Collection from previous task sort by device name and write down into the console
 
 	}
 
